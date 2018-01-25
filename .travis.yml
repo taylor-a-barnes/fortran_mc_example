@@ -1,0 +1,22 @@
+language: fortran
+sudo: required
+
+addons:
+   apt:
+      packages:
+         - gfortran-6
+         - cmake
+
+env:
+   matrix:
+      BUILD_SCRIPT="mkdir cmake-build &&
+      cd cmake-build &&
+      cmake .. &&
+      make -j 4 check"
+      CODE_COVERAGE="no"
+      DEPLOY_DOCUMENTATION="no"
+
+script:
+   - echo $BUILD_SCRIPT
+   - bash <<$BUILD_SCRIPT
+   - /mc/mc
