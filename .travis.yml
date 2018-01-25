@@ -20,3 +20,4 @@ script:
    - echo $BUILD_SCRIPT
    - bash <<$BUILD_SCRIPT
    - /mc/mc
+   - echo "Completed"
