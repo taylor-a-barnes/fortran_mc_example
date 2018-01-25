@@ -4,7 +4,6 @@ sudo: required
 addons:
    apt:
       packages:
-         - gfortran-6
          - cmake
 
 env:
@@ -15,6 +14,15 @@ env:
       make -j 4 check"
       CODE_COVERAGE="no"
       DEPLOY_DOCUMENTATION="no"
+
+before_install:
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+      sudo apt-get update -qq;
+      sudo apt-get install -y gfortran libblas-dev liblapack-dev;
+      sudo ln -s /usr/lib/gcc/x86_64-linux-gnu/$(gfortran -dumpversion | cut -f1,2 -d.)/libgfortran.so /usr/local/lib;
+    else
+      brew install gcc;
+    fi
 
 script:
    - echo $BUILD_SCRIPT
