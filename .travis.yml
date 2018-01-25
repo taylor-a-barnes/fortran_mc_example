@@ -26,6 +26,8 @@ before_install:
 
 script:
    - echo $BUILD_SCRIPT
-   - bash <<$BUILD_SCRIPT
+   - bash <<<$BUILD_SCRIPT
+   - ls
+   - ls *
    - /mc/mc
    - echo "Completed"
