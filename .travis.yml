@@ -29,5 +29,5 @@ script:
    - bash <<<$BUILD_SCRIPT
    - ls
    - ls *
-   - /mc/mc
-   - echo "Completed"
+   - mc/mc > output.new
+   - diff output.new ../tests/output.ref
