@@ -11,7 +11,7 @@ env:
       BUILD_SCRIPT="mkdir cmake-build &&
       cd cmake-build &&
       cmake .. &&
-      make -j 4 check"
+      make"
       CODE_COVERAGE="no"
       DEPLOY_DOCUMENTATION="no"
 
