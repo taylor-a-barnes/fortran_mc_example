@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(Controller
-	LANGUAGES C CXX Fortran)
+	LANGUAGES Fortran)
 
 include_directories(${CMAKE_SOURCE_DIR})
 
