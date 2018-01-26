@@ -38,7 +38,7 @@ PROGRAM mccode
 
      ! randomly select an atom
      r = RAND(0)
-     atom = (r*natoms) + 1
+     atom = FLOOR((r*DBLE(natoms))+1.d0)
 
      ! randomly select a direction
      displc(1) = mxdplc*2.0*(RAND(0)-0.5)
