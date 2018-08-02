@@ -23,11 +23,24 @@ before_install:
     else
       brew install gcc;
     fi
+    
+install:
+    # Download and install recent cmake
+    - |
+      if [[ ${TRAVIS_OS_NAME} == "linux" ]]; then
+        CMAKE_URL="http://www.cmake.org/files/v3.5/cmake-3.5.1-Linux-x86_64.tar.gz"
+        mkdir -p ${DEPS_DIR}/cmake
+        travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/cmake
+        export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+      fi
 
 script:
-   - echo $BUILD_SCRIPT
-   - bash <<<$BUILD_SCRIPT
+   - mkdir cmake-build
+   - cd cmake-build
+   - cmake ..
+   - make
    - ls
    - ls *
+   - cd ../
    - cmake-build/mc/mc > output.new
    - diff output.new tests/output.ref
