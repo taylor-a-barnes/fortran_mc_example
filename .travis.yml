@@ -25,9 +25,12 @@ before_install:
     fi
 
 script:
-   - echo $BUILD_SCRIPT
-   - bash <<<$BUILD_SCRIPT
+   - mkdir cmake-build
+   - cd cmake-build
+   - cmake ..
+   - make
    - ls
    - ls *
+   - cd ../
    - cmake-build/mc/mc > output.new
    - diff output.new tests/output.ref
