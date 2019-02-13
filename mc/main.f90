@@ -1,6 +1,6 @@
 PROGRAM mccode
-  USE energy
 
+  IMPLICIT DOUBLE PRECISION(A-Z)
   INTEGER :: i, j
   INTEGER :: iter
   INTEGER :: natoms
@@ -11,9 +11,11 @@ PROGRAM mccode
   DOUBLE PRECISION :: displc(3)
   DOUBLE PRECISION :: e, eold
   DOUBLE PRECISION :: r
-  DOUBLE PRECISION :: k
   DOUBLE PRECISION :: temp
   DOUBLE PRECISION :: prob
+
+  DOUBLE PRECISION :: k
+  COMMON /energy/ k
 
   ! init
   natoms = 10
@@ -54,8 +56,7 @@ PROGRAM mccode
      e = caleng(coords,natoms)
 
      ! accept of reject the trial step
-     temp = 1.0 ! K
-     k = 0.0019872041 ! kcal/(mol*K)
+     temp = 295.0 ! K
      prob = EXP(-(e-eold)/(k*temp))
      GOTO 50
 40   eold=e
