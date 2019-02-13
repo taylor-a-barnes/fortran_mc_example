@@ -8,7 +8,7 @@ FUNCTION calculate_energy_lj(coords,natoms)
   ! Boltzmann constant
   DOUBLE PRECISION :: boltzmann = 0.0019872041    ! kcal/(mol*Kelvin)
 
-  ! lennard-jones parameters
+  ! Lennard-Jones parameters
   DOUBLE PRECISION :: eps = 10.2                  ! Kelvin
   DOUBLE PRECISION :: sigma = 2.28                ! Angstrom
 
