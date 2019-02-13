@@ -4,16 +4,15 @@ FUNCTION calculate_energy_lj(coords,natoms)
 
   INTEGER :: natoms
   DOUBLE PRECISION :: coords(natoms,3)
-  DOUBLE PRECISION :: boltzmann, eps, sigma
-
-  COMMON /energy/ boltzmann, eps, sigma
 
   ! Boltzmann constant
-  boltzmann = 0.0019872041    ! kcal/(mol*Kelvin)
+  DOUBLE PRECISION :: boltzmann = 0.0019872041    ! kcal/(mol*Kelvin)
 
   ! lennard-jones parameters
-  eps = 10.2                  ! Kelvin
-  sigma = 2.28                ! Angstrom
+  DOUBLE PRECISION :: eps = 10.2                  ! Kelvin
+  DOUBLE PRECISION :: sigma = 2.28                ! Angstrom
+
+  COMMON /energy/ boltzmann, eps, sigma
 
   calculate_energy_lj = 0.0
 
