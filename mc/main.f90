@@ -34,7 +34,7 @@ PROGRAM mccode
   r = RAND(1)
 
   ! calculate the energy of this configuration
-  DO 20 iter=1, 1
+  DO 20 iter=1, 100
 
      WRITE(6,*)'Iteration: ',iter, e
 
